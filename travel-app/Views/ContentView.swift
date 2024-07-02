@@ -8,17 +8,18 @@
 import SwiftUI
 
 struct ContentView: View {
+    
+    let homeViewModel: HomeViewModel = HomeViewModel()
+
     var body: some View {
         VStack {
-            Image(systemName: "globe")
-                .imageScale(.large)
-                .foregroundStyle(.tint)
-            Text("Hello, world!")
+            Button("Load") {
+                Task {
+                    await homeViewModel.load()
+                }
+            }
         }
         .padding()
     }
 }
 
-#Preview {
-    ContentView()
-}
