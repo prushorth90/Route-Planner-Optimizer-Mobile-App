@@ -11,6 +11,8 @@
 		C3AFB4432C33C23900D5C197 /* ContentView.swift in Sources */ = {isa = PBXBuildFile; fileRef = C3AFB4422C33C23900D5C197 /* ContentView.swift */; };
 		C3AFB4452C33C23B00D5C197 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = C3AFB4442C33C23B00D5C197 /* Assets.xcassets */; };
 		C3AFB4552C33C47600D5C197 /* .gitignore in Resources */ = {isa = PBXBuildFile; fileRef = C3AFB4542C33C47600D5C197 /* .gitignore */; };
+		C3AFB4582C33D65100D5C197 /* .gcloudignore in Resources */ = {isa = PBXBuildFile; fileRef = C3AFB4572C33D65100D5C197 /* .gcloudignore */; };
+		C3AFB45A2C33D68400D5C197 /* requirements.txt in Resources */ = {isa = PBXBuildFile; fileRef = C3AFB4592C33D68400D5C197 /* requirements.txt */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -19,6 +21,9 @@
 		C3AFB4422C33C23900D5C197 /* ContentView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ContentView.swift; sourceTree = "<group>"; };
 		C3AFB4442C33C23B00D5C197 /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
 		C3AFB4542C33C47600D5C197 /* .gitignore */ = {isa = PBXFileReference; lastKnownFileType = text; path = .gitignore; sourceTree = "<group>"; };
+		C3AFB4562C33D60500D5C197 /* main.py */ = {isa = PBXFileReference; lastKnownFileType = text.script.python; path = main.py; sourceTree = "<group>"; };
+		C3AFB4572C33D65100D5C197 /* .gcloudignore */ = {isa = PBXFileReference; lastKnownFileType = text; path = .gcloudignore; sourceTree = "<group>"; };
+		C3AFB4592C33D68400D5C197 /* requirements.txt */ = {isa = PBXFileReference; lastKnownFileType = text; path = requirements.txt; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -81,6 +86,9 @@
 		C3AFB4502C33C3F300D5C197 /* Backend */ = {
 			isa = PBXGroup;
 			children = (
+				C3AFB4562C33D60500D5C197 /* main.py */,
+				C3AFB4572C33D65100D5C197 /* .gcloudignore */,
+				C3AFB4592C33D68400D5C197 /* requirements.txt */,
 			);
 			path = Backend;
 			sourceTree = "<group>";
@@ -165,7 +173,9 @@
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				C3AFB4582C33D65100D5C197 /* .gcloudignore in Resources */,
 				C3AFB4552C33C47600D5C197 /* .gitignore in Resources */,
+				C3AFB45A2C33D68400D5C197 /* requirements.txt in Resources */,
 				C3AFB4452C33C23B00D5C197 /* Assets.xcassets in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
