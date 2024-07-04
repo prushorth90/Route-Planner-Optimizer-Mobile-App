@@ -11,6 +11,13 @@
 		C3AFB4432C33C23900D5C197 /* ContentView.swift in Sources */ = {isa = PBXBuildFile; fileRef = C3AFB4422C33C23900D5C197 /* ContentView.swift */; };
 		C3AFB4452C33C23B00D5C197 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = C3AFB4442C33C23B00D5C197 /* Assets.xcassets */; };
 		C3AFB4552C33C47600D5C197 /* .gitignore in Resources */ = {isa = PBXBuildFile; fileRef = C3AFB4542C33C47600D5C197 /* .gitignore */; };
+		C3AFB4582C33D65100D5C197 /* .gcloudignore in Resources */ = {isa = PBXBuildFile; fileRef = C3AFB4572C33D65100D5C197 /* .gcloudignore */; };
+		C3AFB45A2C33D68400D5C197 /* requirements.txt in Resources */ = {isa = PBXBuildFile; fileRef = C3AFB4592C33D68400D5C197 /* requirements.txt */; };
+		C3AFB45D2C34491C00D5C197 /* app.yaml in Resources */ = {isa = PBXBuildFile; fileRef = C3AFB45C2C34491C00D5C197 /* app.yaml */; };
+		C3AFB4602C34506500D5C197 /* Alamofire in Frameworks */ = {isa = PBXBuildFile; productRef = C3AFB45F2C34506500D5C197 /* Alamofire */; };
+		C3AFB4622C3453A500D5C197 /* Loader.swift in Sources */ = {isa = PBXBuildFile; fileRef = C3AFB4612C3453A500D5C197 /* Loader.swift */; };
+		C3AFB4662C34595000D5C197 /* HomeViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = C3AFB4652C34595000D5C197 /* HomeViewModel.swift */; };
+		C3AFB4682C34924300D5C197 /* Route.swift in Sources */ = {isa = PBXBuildFile; fileRef = C3AFB4672C34924300D5C197 /* Route.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -19,6 +26,13 @@
 		C3AFB4422C33C23900D5C197 /* ContentView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ContentView.swift; sourceTree = "<group>"; };
 		C3AFB4442C33C23B00D5C197 /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
 		C3AFB4542C33C47600D5C197 /* .gitignore */ = {isa = PBXFileReference; lastKnownFileType = text; path = .gitignore; sourceTree = "<group>"; };
+		C3AFB4562C33D60500D5C197 /* main.py */ = {isa = PBXFileReference; lastKnownFileType = text.script.python; path = main.py; sourceTree = "<group>"; };
+		C3AFB4572C33D65100D5C197 /* .gcloudignore */ = {isa = PBXFileReference; lastKnownFileType = text; path = .gcloudignore; sourceTree = "<group>"; };
+		C3AFB4592C33D68400D5C197 /* requirements.txt */ = {isa = PBXFileReference; lastKnownFileType = text; path = requirements.txt; sourceTree = "<group>"; };
+		C3AFB45C2C34491C00D5C197 /* app.yaml */ = {isa = PBXFileReference; lastKnownFileType = text.yaml; path = app.yaml; sourceTree = "<group>"; };
+		C3AFB4612C3453A500D5C197 /* Loader.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Loader.swift; sourceTree = "<group>"; };
+		C3AFB4652C34595000D5C197 /* HomeViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HomeViewModel.swift; sourceTree = "<group>"; };
+		C3AFB4672C34924300D5C197 /* Route.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Route.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -26,6 +40,7 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				C3AFB4602C34506500D5C197 /* Alamofire in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -55,6 +70,7 @@
 				C3AFB44E2C33C3D600D5C197 /* App */,
 				C3AFB44F2C33C3E600D5C197 /* Assets */,
 				C3AFB4502C33C3F300D5C197 /* Backend */,
+				C3AFB45B2C34486D00D5C197 /* Helpers */,
 				C3AFB4512C33C40600D5C197 /* Models */,
 				C3AFB4522C33C40C00D5C197 /* ViewModels */,
 				C3AFB4532C33C41E00D5C197 /* Views */,
@@ -81,6 +97,10 @@
 		C3AFB4502C33C3F300D5C197 /* Backend */ = {
 			isa = PBXGroup;
 			children = (
+				C3AFB4562C33D60500D5C197 /* main.py */,
+				C3AFB4572C33D65100D5C197 /* .gcloudignore */,
+				C3AFB4592C33D68400D5C197 /* requirements.txt */,
+				C3AFB45C2C34491C00D5C197 /* app.yaml */,
 			);
 			path = Backend;
 			sourceTree = "<group>";
@@ -88,6 +108,7 @@
 		C3AFB4512C33C40600D5C197 /* Models */ = {
 			isa = PBXGroup;
 			children = (
+				C3AFB4672C34924300D5C197 /* Route.swift */,
 			);
 			path = Models;
 			sourceTree = "<group>";
@@ -95,6 +116,7 @@
 		C3AFB4522C33C40C00D5C197 /* ViewModels */ = {
 			isa = PBXGroup;
 			children = (
+				C3AFB4652C34595000D5C197 /* HomeViewModel.swift */,
 			);
 			path = ViewModels;
 			sourceTree = "<group>";
@@ -105,6 +127,14 @@
 				C3AFB4422C33C23900D5C197 /* ContentView.swift */,
 			);
 			path = Views;
+			sourceTree = "<group>";
+		};
+		C3AFB45B2C34486D00D5C197 /* Helpers */ = {
+			isa = PBXGroup;
+			children = (
+				C3AFB4612C3453A500D5C197 /* Loader.swift */,
+			);
+			path = Helpers;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -123,6 +153,9 @@
 			dependencies = (
 			);
 			name = "travel-app";
+			packageProductDependencies = (
+				C3AFB45F2C34506500D5C197 /* Alamofire */,
+			);
 			productName = "travel-app";
 			productReference = C3AFB43D2C33C23900D5C197 /* travel-app.app */;
 			productType = "com.apple.product-type.application";
@@ -151,6 +184,9 @@
 				Base,
 			);
 			mainGroup = C3AFB4342C33C23900D5C197;
+			packageReferences = (
+				C3AFB45E2C34506500D5C197 /* XCRemoteSwiftPackageReference "Alamofire" */,
+			);
 			productRefGroup = C3AFB43E2C33C23900D5C197 /* Products */;
 			projectDirPath = "";
 			projectRoot = "";
@@ -165,7 +201,10 @@
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				C3AFB4582C33D65100D5C197 /* .gcloudignore in Resources */,
 				C3AFB4552C33C47600D5C197 /* .gitignore in Resources */,
+				C3AFB45D2C34491C00D5C197 /* app.yaml in Resources */,
+				C3AFB45A2C33D68400D5C197 /* requirements.txt in Resources */,
 				C3AFB4452C33C23B00D5C197 /* Assets.xcassets in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -179,6 +218,9 @@
 			files = (
 				C3AFB4432C33C23900D5C197 /* ContentView.swift in Sources */,
 				C3AFB4412C33C23900D5C197 /* travel_appApp.swift in Sources */,
+				C3AFB4682C34924300D5C197 /* Route.swift in Sources */,
+				C3AFB4662C34595000D5C197 /* HomeViewModel.swift in Sources */,
+				C3AFB4622C3453A500D5C197 /* Loader.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -382,6 +424,25 @@
 			defaultConfigurationName = Release;
 		};
 /* End XCConfigurationList section */
+
+/* Begin XCRemoteSwiftPackageReference section */
+		C3AFB45E2C34506500D5C197 /* XCRemoteSwiftPackageReference "Alamofire" */ = {
+			isa = XCRemoteSwiftPackageReference;
+			repositoryURL = "https://github.com/Alamofire/Alamofire";
+			requirement = {
+				kind = upToNextMajorVersion;
+				minimumVersion = 5.9.1;
+			};
+		};
+/* End XCRemoteSwiftPackageReference section */
+
+/* Begin XCSwiftPackageProductDependency section */
+		C3AFB45F2C34506500D5C197 /* Alamofire */ = {
+			isa = XCSwiftPackageProductDependency;
+			package = C3AFB45E2C34506500D5C197 /* XCRemoteSwiftPackageReference "Alamofire" */;
+			productName = Alamofire;
+		};
+/* End XCSwiftPackageProductDependency section */
 	};
 	rootObject = C3AFB4352C33C23900D5C197 /* Project object */;
 }
