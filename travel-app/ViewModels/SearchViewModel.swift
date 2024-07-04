@@ -14,11 +14,11 @@ class SearchViewModel {
   
   var results: [PlaceResult] = []
     var dispatchWorkItem: DispatchWorkItem?
-    func load(name: String) async  {
+    func load(placeToSearch: String) async  {
         dispatchWorkItem?.cancel()
         let req = DispatchWorkItem { [weak self] in
-            print("req starts \(name)")
-            SearchLoader.loadSearch(name: name) { [weak self] result in
+            print("req starts \(placeToSearch)")
+            SearchLoader.loadSearch(placeToSearch: placeToSearch) { [weak self] result in
                 self?.results = result
             }
         }

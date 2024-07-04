@@ -16,7 +16,7 @@ struct SearchPlaceResult: Decodable {
 struct PlaceResult: Decodable, Identifiable {
     var id: String {place_id};
    // var business_status: String;
-   // var formatted_address: String;
+    var formatted_address: String;
    // var geometry: Geometry
     //var icon: String;
     //var icon_background_color: String;

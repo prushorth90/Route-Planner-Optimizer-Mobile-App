@@ -24,7 +24,7 @@ struct ContentView: View {
                     Task {
                         
                         if !searchText.isEmpty  {
-                            await searchViewModel.load(name: searchText)
+                            await searchViewModel.load(placeToSearch: searchText)
                             
                         } else {
                             searchViewModel.results = []
@@ -48,6 +48,8 @@ struct ContentView: View {
                 
                     VStack(alignment: .leading, spacing: 0){
                         Text(item.name)
+                            .fontWeight(.bold)
+                        Text(item.formatted_address)
                             .fontWeight(.bold)
                         
                     }

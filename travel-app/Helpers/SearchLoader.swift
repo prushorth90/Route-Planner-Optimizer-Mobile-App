@@ -9,8 +9,8 @@ import Foundation
 import Alamofire
 
 enum SearchLoader {
-    static func loadSearch(name: String, callback: @escaping (_ res: [PlaceResult]) -> Void ){
-        let urlString = "https://maps.googleapis.com/maps/api/place/textsearch/json?query=123%20main%20street&key=AIzaSyDbq-ALkqgJHFvNBDQc-1MJjCk6schskEw"
+    static func loadSearch(placeToSearch: String, callback: @escaping (_ res: [PlaceResult]) -> Void ){
+        let urlString = "https://travelprushorth.wl.r.appspot.com/searchAddressOfPlace/?placeToSearch=" + placeToSearch
         var filteredItems: [PlaceResult] = []
         AF.request(urlString)
             .validate()

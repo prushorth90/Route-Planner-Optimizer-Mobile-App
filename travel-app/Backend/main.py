@@ -18,7 +18,8 @@ def index():
 
 @app.route('/searchAddressOfPlace/', methods=['GET'])
 def searchAddressOfPlace():
-    apiResponse = requests.get(f'https://travelprushorth.wl.r.appspot.com/searchAddressOfPlace/')
+    placeToSearch = request.args.get('placeToSearch')
+    apiResponse = requests.get(f'https://maps.googleapis.com/maps/api/place/textsearch/json?query={placeToSearch}&key=AIzaSyDbq-ALkqgJHFvNBDQc-1MJjCk6schskEw')
     return apiResponse.json()
 
 @app.route('/calculateRoute/', methods=['GET'])
