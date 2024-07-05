@@ -18,7 +18,7 @@ enum SearchLoader {
                 switch resp.result {
                 case .success(let resp):
                     filteredItems = resp.results
-                    print(filteredItems)
+                    //print(filteredItems)
                     callback(filteredItems)
                     return
                     
