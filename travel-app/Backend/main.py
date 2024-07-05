@@ -22,9 +22,10 @@ def searchAddressOfPlace():
     apiResponse = requests.get(f'https://maps.googleapis.com/maps/api/place/textsearch/json?query={placeToSearch}&key=AIzaSyDbq-ALkqgJHFvNBDQc-1MJjCk6schskEw')
     return apiResponse.json()
 
-@app.route('/calculateRoute/', methods=['GET'])
+@app.route('/calculateRoute/', methods=['GET', 'POST'])
 def calculateRoute():
     """Solve the VRP with time windows."""
+    print(request.get_json())
     # Instantiate the data problem.
     data = create_data_model()
 

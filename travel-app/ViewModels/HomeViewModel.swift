@@ -11,13 +11,13 @@ import Foundation
 class HomeViewModel {
     
     var routeResult: RouteResult?
-    func load() async  {
-        Loader.load() {  result in
+    func load(addressOfPlacesToVisit: [String]) async  {
+        let bodyOfPostReqOfAddresses = AddressBody(addressOfPlacesToVisit: addressOfPlacesToVisit)
+        
+        Loader.load(addressOfPlacesToVisit: bodyOfPostReqOfAddresses) {  result in
             self.routeResult = result
-            //db have to be sequential
+            
         }
     }
-      
-  
       
 }

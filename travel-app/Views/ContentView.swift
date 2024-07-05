@@ -41,7 +41,7 @@ struct ContentView: View {
            
             Button("Calculate best route") {
                 Task {
-                    await homeViewModel.load()
+                    await homeViewModel.load(addressOfPlacesToVisit: addressOfPlacesToVisit)
                 }
             }
             
