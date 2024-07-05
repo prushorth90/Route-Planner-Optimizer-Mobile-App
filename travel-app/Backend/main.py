@@ -1,31 +1,11 @@
-# Copyright 2018 Google LLC
-#
-# Licensed under the Apache License, Version 2.0 (the "License");
-# you may not use this file except in compliance with the License.
-# You may obtain a copy of the License at
-#
-#     http://www.apache.org/licenses/LICENSE-2.0
-#
-# Unless required by applicable law or agreed to in writing, software
-# distributed under the License is distributed on an "AS IS" BASIS,
-# WITHOUT WARRANTIES OR CONDITIONS OF ANY KIND, either express or implied.
-# See the License for the specific language governing permissions and
-# limitations under the License.
 
-# [START gae_python38_app]
-# [START gae_python3_app]
 from flask import Flask, request, jsonify
 import requests
 import json
 from ortools.constraint_solver import routing_enums_pb2
 from ortools.constraint_solver import pywrapcp
 
-# from flask_cors import CORS, cross_origin
-# If `entrypoint` is not defined in app.yaml, App Engine will look for an app
-# called `app` in `main.py`.
 app = Flask(__name__)
-# CORS(app, support_credentials=True)
-# app.config['CORS_HEADERS'] = 'Content-Type'
 
 @app.route("/")
 def index():
@@ -36,10 +16,16 @@ def index():
     """
     return "C World!"
 
+@app.route('/searchAddressOfPlace/', methods=['GET'])
+def searchAddressOfPlace():
+    placeToSearch = request.args.get('placeToSearch')
+    apiResponse = requests.get(f'https://maps.googleapis.com/maps/api/place/textsearch/json?query={placeToSearch}&key=AIzaSyDbq-ALkqgJHFvNBDQc-1MJjCk6schskEw')
+    return apiResponse.json()
 
-@app.route('/calculateRoute/', methods=['GET'])
+@app.route('/calculateRoute/', methods=['GET', 'POST'])
 def calculateRoute():
     """Solve the VRP with time windows."""
+    print(request.get_json())
     # Instantiate the data problem.
     data = create_data_model()
 
@@ -169,9 +155,5 @@ def print_solution(data, manager, routing, solution):
     return total_time
     
 if __name__ == "__main__":
-    # This is used when running locally only. When deploying to Google App
-    # Engine, a webserver process such as Gunicorn will serve the app. You
-    # can configure startup instructions by adding `entrypoint` to app.yaml.
     app.run(host="127.0.0.1", port=8080, debug=True)
-# [END gae_python3_app]
-# [END gae_python38_app]
+
