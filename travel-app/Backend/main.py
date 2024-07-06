@@ -96,16 +96,15 @@ def calculateRoute():
     # Solve the problem.
     solution = routing.SolveWithParameters(search_parameters)
     total_time = 0
+    plan_output = ""
     # Print solution on console.
     if solution:
-        total_time = print_solution(data, manager, routing, solution)
+        (plan_output, total_time) = print_solution(data, manager, routing, solution, request.get_json()['addressOfPlacesToVisit'])
     # FromHotelToVisitAllLocations
     # Create a dictionary
     data = {
-        "name": "Test",
-        "age": 30,
-        "city": "Los Angeles",
-        "totalTime" : total_time
+        "totalTime" : total_time,
+        "planOutput": plan_output
     }
 
     # Convert the dictionary to a
@@ -230,32 +229,33 @@ def convert_time_to_24_hour_format(time_str):
         hour = 0
     return hour
     
-def print_solution(data, manager, routing, solution):
+def print_solution(data, manager, routing, solution, listOfAddressesOfPlacesToVisit):
     """Prints solution on console."""
     print(f"Objective: {solution.ObjectiveValue()}")
     time_dimension = routing.GetDimensionOrDie("Time")
     total_time = 0
+    plan_output = ""
     for vehicle_id in range(data["num_vehicles"]):
         index = routing.Start(vehicle_id)
-        plan_output = f"Route for vehicle {vehicle_id}:\n"
+        plan_output = f"Optimal route for vehicle is shown below: \n"
         while not routing.IsEnd(index):
             time_var = time_dimension.CumulVar(index)
             plan_output += (
-                f"{manager.IndexToNode(index)}"
-                f" Time({solution.Min(time_var)},{solution.Max(time_var)})"
-                " -> "
+                f"{listOfAddressesOfPlacesToVisit[manager.IndexToNode(index)]}, \n"
+               # f" Time({solution.Min(time_var)},{solution.Max(time_var)})"
+               # " -> "
             )
             index = solution.Value(routing.NextVar(index))
         time_var = time_dimension.CumulVar(index)
         plan_output += (
-            f"{manager.IndexToNode(index)}"
-            f" Time({solution.Min(time_var)},{solution.Max(time_var)})\n"
+            f"{listOfAddressesOfPlacesToVisit[manager.IndexToNode(index)]} \n"
+           # f" Time({solution.Min(time_var)},{solution.Max(time_var)})\n"
         )
         plan_output += f"Time of the route: {solution.Min(time_var)}min\n"
         print(plan_output)
         total_time += solution.Min(time_var)
     print(f"Total time of all routes: {total_time}min")
-    return total_time
+    return (plan_output, total_time)
     
 if __name__ == "__main__":
     app.run(host="127.0.0.1", port=8080, debug=True)

@@ -11,10 +11,10 @@ import Foundation
 class HomeViewModel {
     
     var routeResult: RouteResult?
-    func load(addressOfPlacesToVisit: [String]) async  {
+    func calculateBestRoute(addressOfPlacesToVisit: [String]) async  {
         let bodyOfPostReqOfAddresses = AddressBody(addressOfPlacesToVisit: addressOfPlacesToVisit)
         
-        Loader.load(addressOfPlacesToVisit: bodyOfPostReqOfAddresses) {  result in
+        Loader.calculateBestRoute(addressOfPlacesToVisit: bodyOfPostReqOfAddresses) {  result in
             self.routeResult = result
             
         }

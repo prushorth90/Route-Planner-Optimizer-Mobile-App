@@ -13,6 +13,8 @@ struct ContentView: View {
     @State private var searchText = ""
     @State private var addressOfPlacesToVisit: [String] = []
     @State private var isAddressInSearchListClicked = false
+    @State private var isButtonClicked = false
+
     var searchViewModel = SearchViewModel()
 
     var body: some View {
@@ -21,29 +23,38 @@ struct ContentView: View {
             List {
                 createAddressItemsToDisplay()
                 if (searchText.isEmpty) {
-                     createCurrentListOfPlacesToVisit()
-                }
-            }
-            .searchable(text: $searchText, placement: .navigationBarDrawer(displayMode: .always), prompt: "Search")
-                .onChange(of: searchText) {
-                    Task {
-                        
-                        if !searchText.isEmpty  {
-                            await searchViewModel.load(placeToSearch: searchText)
-                            
-                        } else {
-                            searchViewModel.results = []
-                        }
-                    }
+                    Text("Start by selecting your origin. Then add more places you plan to visit in the vicinity. The app determines the best route via car by minimizing the time such that you visit all the places and return to the origin while satisfying the open and close times of each place.")
+                    createCurrentListOfPlacesToVisit()
                     
                 }
-                .autocorrectionDisabled()
-           
-            Button("Calculate best route") {
-                Task {
-                    await homeViewModel.load(addressOfPlacesToVisit: addressOfPlacesToVisit)
-                }
             }
+            .navigationTitle("Trip Optimizer")
+            .searchable(text: $searchText, placement: .navigationBarDrawer(displayMode: .always), prompt: "Search for places to visit")
+            .onChange(of: searchText) {
+                Task {
+                    
+                    if !searchText.isEmpty  {
+                        await searchViewModel.load(placeToSearch: searchText)
+                        
+                    } else {
+                        searchViewModel.results = []
+                    }
+                }
+                
+            }
+            .autocorrectionDisabled()
+            if isButtonClicked && homeViewModel.routeResult != nil {
+                Text(homeViewModel.routeResult!.planOutput)
+            }
+            Button("Calculate best route", action: {
+                Task {
+                    await homeViewModel.calculateBestRoute(addressOfPlacesToVisit: addressOfPlacesToVisit)
+                    isButtonClicked.toggle()
+
+                }
+            })
+            
+          
             
         }
         .padding()
