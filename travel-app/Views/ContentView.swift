@@ -58,10 +58,10 @@ struct ContentView: View {
                         Text(item.formatted_address)
                             .fontWeight(.bold)
                         
-                        if !addressOfPlacesToVisit.contains(item.formatted_address) {
+                        if !addressOfPlacesToVisit.contains(item.name + " " + item.formatted_address) {
                             Button(action: {
                                 // Call your method here
-                                self.plusButtonTapped(currAddressItemInSearchList: item.formatted_address)
+                                self.plusButtonTapped(currAddressItemInSearchList: item.formatted_address, nameOfPlace: item.name)
                                 withAnimation {
                                     self.isAddressInSearchListClicked = true
                                 }
@@ -71,7 +71,7 @@ struct ContentView: View {
                         } else {
                             Button(action: {
                                 // Call your method here
-                                self.plusButtonTappedRemove(currAddressItemInSearchList: item.formatted_address)
+                                self.plusButtonTappedRemove(currAddressItemInSearchList: item.formatted_address, nameOfPlace: item.name)
                                 withAnimation {
                                     self.isAddressInSearchListClicked = true
                                 }
@@ -86,13 +86,13 @@ struct ContentView: View {
         
     }
     
-    func plusButtonTapped(currAddressItemInSearchList: String) {
-        self.addressOfPlacesToVisit.append(currAddressItemInSearchList)
+    func plusButtonTapped(currAddressItemInSearchList: String, nameOfPlace: String) {
+        self.addressOfPlacesToVisit.append(nameOfPlace + " " + currAddressItemInSearchList)
         
     }
     
-    func plusButtonTappedRemove(currAddressItemInSearchList: String) {
-        self.addressOfPlacesToVisit.removeAll { $0 ==  currAddressItemInSearchList}
+    func plusButtonTappedRemove(currAddressItemInSearchList: String, nameOfPlace: String) {
+        self.addressOfPlacesToVisit.removeAll { $0 ==  (nameOfPlace + " " + currAddressItemInSearchList)}
     }
     
     func createCurrentListOfPlacesToVisit() -> some View {

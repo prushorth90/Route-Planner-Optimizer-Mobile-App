@@ -167,6 +167,10 @@ def buildTimeWindowMatrix(listOfAddressesOfPlacesToVisit):
                 if period["open"]["day"] == 1:
                     open_hour = period["open"]["hour"]
                     close_hour = period["close"]["hour"]
+                    if open_hour > close_hour:
+                        #kfc issue 10am - 3am
+                        listOfOpenAndCloseTimes.append((open_hour, 24))
+                        continue
                     listOfOpenAndCloseTimes.append((open_hour, close_hour))
        else:
              # did not find from google api so scraped instead
@@ -207,6 +211,10 @@ def getOpenHourAndClosedHour(data):
                 start, end = hours.split('–')
                 start_hour = convert_time_to_24_hour_format(start)
                 end_hour = convert_time_to_24_hour_format(end)
+                if start_hour > end_hour:
+                #kfc issue 10am - 3am
+                    return (start_hour, 24)
+                
                 return (start_hour, end_hour)
             else:
                 return (0,24)

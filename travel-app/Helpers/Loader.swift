@@ -13,7 +13,7 @@ enum Loader {
     static func load(addressOfPlacesToVisit: AddressBody, callback: @escaping (_ res: RouteResult) -> Void ){
        // local see changes in server term
         let urlString = "http://127.0.0.1:8080/calculateRoute"
-        // let urlString = "https://travelprushorth.wl.r.appspot.com/calculateRoute"
+       // let urlString = "https://travelprushorth.wl.r.appspot.com/calculateRoute"
         var filteredItems: RouteResult?
         
         let queue = DispatchQueue(label: "com.test.api", qos: .background, attributes: .concurrent)
