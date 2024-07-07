@@ -8,9 +8,7 @@
 import Foundation
 
 struct RouteResult: Decodable {
-    var name: String;
-    var age: Int;
-    var city: String;
     var totalTime: Int;
+    var planOutput: String
 }
 
