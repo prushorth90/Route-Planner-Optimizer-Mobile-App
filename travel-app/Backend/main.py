@@ -9,9 +9,29 @@ import random
 import bs4
 import lxml
 from bs4 import BeautifulSoup
+from flask_sqlalchemy import SQLAlchemy
+import os
+import psycopg2
+from dotenv import load_dotenv
 
-
+load_dotenv()
 app = Flask(__name__)
+
+
+production_url = os.getenv("PRODUCTION_DATABASE_URL")
+app.config['SQLALCHEMY_DATABASE_URI'] = production_url
+db = SQLAlchemy(app)
+class DummyNote(db.Model):
+    __tablename__ = "Dummy Note"
+    id = db.Column(db.Integer, primary_key=True)
+    text = db.Column(db.String(200), nullable=False)
+    location = db.Column(db.String(200), nullable=False)
+    
+    def __repr__(self):
+        return '<Location %r>' % self.location
+
+with app.app_context():
+    db.create_all()
 
 @app.route("/")
 def index():
@@ -256,7 +276,27 @@ def print_solution(data, manager, routing, solution, listOfAddressesOfPlacesToVi
         total_time += solution.Min(time_var)
     print(f"Total time of all routes: {total_time}min")
     return (plan_output, total_time)
-    
+
+@app.route('/api/createNoteDummy', methods=['POST'])
+def create_note_dummy():
+    dummy = DummyNote(
+        text = "hi",
+        location = "mcdonalds"
+    )
+    db.session.add(dummy)
+    db.session.commit()
+    data = {
+        "msg" : "success",
+    }
+
+    # Convert the dictionary to a
+    # JSON string with double quotes
+    json_string = json.dumps(data, ensure_ascii=False)
+
+    return json_string
+
+
+
 if __name__ == "__main__":
     app.run(host="127.0.0.1", port=8080, debug=True)
 

@@ -7,6 +7,11 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		C3285E2B2C46F25400D588FE /* DetailView.swift in Sources */ = {isa = PBXBuildFile; fileRef = C3285E2A2C46F25400D588FE /* DetailView.swift */; };
+		C3285E2D2C470FB300D588FE /* DetailViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = C3285E2C2C470FB300D588FE /* DetailViewModel.swift */; };
+		C3285E2F2C471CD000D588FE /* NoteBody.swift in Sources */ = {isa = PBXBuildFile; fileRef = C3285E2E2C471CD000D588FE /* NoteBody.swift */; };
+		C3285E312C47231B00D588FE /* NoteHelper.swift in Sources */ = {isa = PBXBuildFile; fileRef = C3285E302C47231B00D588FE /* NoteHelper.swift */; };
+		C35AF21A2C432CDD00D00B56 /* .env in Resources */ = {isa = PBXBuildFile; fileRef = C35AF2192C432CDD00D00B56 /* .env */; };
 		C3AFB4412C33C23900D5C197 /* travel_appApp.swift in Sources */ = {isa = PBXBuildFile; fileRef = C3AFB4402C33C23900D5C197 /* travel_appApp.swift */; };
 		C3AFB4432C33C23900D5C197 /* ContentView.swift in Sources */ = {isa = PBXBuildFile; fileRef = C3AFB4422C33C23900D5C197 /* ContentView.swift */; };
 		C3AFB4452C33C23B00D5C197 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = C3AFB4442C33C23B00D5C197 /* Assets.xcassets */; };
@@ -25,6 +30,11 @@
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
+		C3285E2A2C46F25400D588FE /* DetailView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DetailView.swift; sourceTree = "<group>"; };
+		C3285E2C2C470FB300D588FE /* DetailViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DetailViewModel.swift; sourceTree = "<group>"; };
+		C3285E2E2C471CD000D588FE /* NoteBody.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NoteBody.swift; sourceTree = "<group>"; };
+		C3285E302C47231B00D588FE /* NoteHelper.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NoteHelper.swift; sourceTree = "<group>"; };
+		C35AF2192C432CDD00D00B56 /* .env */ = {isa = PBXFileReference; lastKnownFileType = text; path = .env; sourceTree = "<group>"; };
 		C3AFB43D2C33C23900D5C197 /* travel-app.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = "travel-app.app"; sourceTree = BUILT_PRODUCTS_DIR; };
 		C3AFB4402C33C23900D5C197 /* travel_appApp.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = travel_appApp.swift; sourceTree = "<group>"; };
 		C3AFB4422C33C23900D5C197 /* ContentView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ContentView.swift; sourceTree = "<group>"; };
@@ -105,6 +115,7 @@
 		C3AFB4502C33C3F300D5C197 /* Backend */ = {
 			isa = PBXGroup;
 			children = (
+				C35AF2192C432CDD00D00B56 /* .env */,
 				C3AFB4562C33D60500D5C197 /* main.py */,
 				C3AFB4572C33D65100D5C197 /* .gcloudignore */,
 				C3AFB4592C33D68400D5C197 /* requirements.txt */,
@@ -119,6 +130,7 @@
 				C3AFB4672C34924300D5C197 /* Route.swift */,
 				C3AFB46B2C37354400D5C197 /* Search.swift */,
 				C3AFB46F2C38316500D5C197 /* Address.swift */,
+				C3285E2E2C471CD000D588FE /* NoteBody.swift */,
 			);
 			path = Models;
 			sourceTree = "<group>";
@@ -128,6 +140,7 @@
 			children = (
 				C3AFB4652C34595000D5C197 /* HomeViewModel.swift */,
 				C3AFB4692C3734EB00D5C197 /* SearchViewModel.swift */,
+				C3285E2C2C470FB300D588FE /* DetailViewModel.swift */,
 			);
 			path = ViewModels;
 			sourceTree = "<group>";
@@ -136,6 +149,7 @@
 			isa = PBXGroup;
 			children = (
 				C3AFB4422C33C23900D5C197 /* ContentView.swift */,
+				C3285E2A2C46F25400D588FE /* DetailView.swift */,
 			);
 			path = Views;
 			sourceTree = "<group>";
@@ -145,6 +159,7 @@
 			children = (
 				C3AFB4612C3453A500D5C197 /* Loader.swift */,
 				C3AFB46D2C37378300D5C197 /* SearchLoader.swift */,
+				C3285E302C47231B00D588FE /* NoteHelper.swift */,
 			);
 			path = Helpers;
 			sourceTree = "<group>";
@@ -216,6 +231,7 @@
 				C3AFB4582C33D65100D5C197 /* .gcloudignore in Resources */,
 				C3AFB4552C33C47600D5C197 /* .gitignore in Resources */,
 				C3AFB45D2C34491C00D5C197 /* app.yaml in Resources */,
+				C35AF21A2C432CDD00D00B56 /* .env in Resources */,
 				C3AFB45A2C33D68400D5C197 /* requirements.txt in Resources */,
 				C3AFB4452C33C23B00D5C197 /* Assets.xcassets in Resources */,
 			);
@@ -228,14 +244,18 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				C3285E312C47231B00D588FE /* NoteHelper.swift in Sources */,
 				C3AFB4702C38316500D5C197 /* Address.swift in Sources */,
+				C3285E2F2C471CD000D588FE /* NoteBody.swift in Sources */,
 				C3AFB46A2C3734EB00D5C197 /* SearchViewModel.swift in Sources */,
 				C3AFB4432C33C23900D5C197 /* ContentView.swift in Sources */,
+				C3285E2B2C46F25400D588FE /* DetailView.swift in Sources */,
 				C3AFB46E2C37378300D5C197 /* SearchLoader.swift in Sources */,
 				C3AFB4412C33C23900D5C197 /* travel_appApp.swift in Sources */,
 				C3AFB4682C34924300D5C197 /* Route.swift in Sources */,
 				C3AFB4662C34595000D5C197 /* HomeViewModel.swift in Sources */,
 				C3AFB4622C3453A500D5C197 /* Loader.swift in Sources */,
+				C3285E2D2C470FB300D588FE /* DetailViewModel.swift in Sources */,
 				C3AFB46C2C37354400D5C197 /* Search.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;

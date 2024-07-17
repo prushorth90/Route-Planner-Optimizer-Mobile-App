@@ -62,7 +62,8 @@ struct ContentView: View {
     
     func createAddressItemsToDisplay() -> some View {
         ForEach(searchViewModel.results, id: \.id) { item in
-                
+            NavigationLink(destination: DetailView(currItem: item)){
+
                     VStack(alignment: .leading, spacing: 0){
                         Text(item.name)
                             .fontWeight(.bold)
@@ -92,6 +93,8 @@ struct ContentView: View {
                         }
                         
                     }
+            }.buttonStyle(PlainButtonStyle())
+
          
         }
         
@@ -114,7 +117,7 @@ struct ContentView: View {
                             .fontWeight(.bold)
                         
                     }
-         
+
         }
     }
     
