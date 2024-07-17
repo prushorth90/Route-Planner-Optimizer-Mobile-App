@@ -11,7 +11,7 @@
 		C3285E2D2C470FB300D588FE /* DetailViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = C3285E2C2C470FB300D588FE /* DetailViewModel.swift */; };
 		C3285E2F2C471CD000D588FE /* NoteBody.swift in Sources */ = {isa = PBXBuildFile; fileRef = C3285E2E2C471CD000D588FE /* NoteBody.swift */; };
 		C3285E312C47231B00D588FE /* NoteHelper.swift in Sources */ = {isa = PBXBuildFile; fileRef = C3285E302C47231B00D588FE /* NoteHelper.swift */; };
-		C35AF21A2C432CDD00D00B56 /* .env in Resources */ = {isa = PBXBuildFile; fileRef = C35AF2192C432CDD00D00B56 /* .env */; };
+		C3285E332C4765EC00D588FE /* .env in Resources */ = {isa = PBXBuildFile; fileRef = C3285E322C4765EC00D588FE /* .env */; };
 		C3AFB4412C33C23900D5C197 /* travel_appApp.swift in Sources */ = {isa = PBXBuildFile; fileRef = C3AFB4402C33C23900D5C197 /* travel_appApp.swift */; };
 		C3AFB4432C33C23900D5C197 /* ContentView.swift in Sources */ = {isa = PBXBuildFile; fileRef = C3AFB4422C33C23900D5C197 /* ContentView.swift */; };
 		C3AFB4452C33C23B00D5C197 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = C3AFB4442C33C23B00D5C197 /* Assets.xcassets */; };
@@ -34,7 +34,7 @@
 		C3285E2C2C470FB300D588FE /* DetailViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DetailViewModel.swift; sourceTree = "<group>"; };
 		C3285E2E2C471CD000D588FE /* NoteBody.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NoteBody.swift; sourceTree = "<group>"; };
 		C3285E302C47231B00D588FE /* NoteHelper.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NoteHelper.swift; sourceTree = "<group>"; };
-		C35AF2192C432CDD00D00B56 /* .env */ = {isa = PBXFileReference; lastKnownFileType = text; path = .env; sourceTree = "<group>"; };
+		C3285E322C4765EC00D588FE /* .env */ = {isa = PBXFileReference; lastKnownFileType = text; path = .env; sourceTree = "<group>"; };
 		C3AFB43D2C33C23900D5C197 /* travel-app.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = "travel-app.app"; sourceTree = BUILT_PRODUCTS_DIR; };
 		C3AFB4402C33C23900D5C197 /* travel_appApp.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = travel_appApp.swift; sourceTree = "<group>"; };
 		C3AFB4422C33C23900D5C197 /* ContentView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ContentView.swift; sourceTree = "<group>"; };
@@ -115,11 +115,11 @@
 		C3AFB4502C33C3F300D5C197 /* Backend */ = {
 			isa = PBXGroup;
 			children = (
-				C35AF2192C432CDD00D00B56 /* .env */,
 				C3AFB4562C33D60500D5C197 /* main.py */,
 				C3AFB4572C33D65100D5C197 /* .gcloudignore */,
 				C3AFB4592C33D68400D5C197 /* requirements.txt */,
 				C3AFB45C2C34491C00D5C197 /* app.yaml */,
+				C3285E322C4765EC00D588FE /* .env */,
 			);
 			path = Backend;
 			sourceTree = "<group>";
@@ -231,7 +231,7 @@
 				C3AFB4582C33D65100D5C197 /* .gcloudignore in Resources */,
 				C3AFB4552C33C47600D5C197 /* .gitignore in Resources */,
 				C3AFB45D2C34491C00D5C197 /* app.yaml in Resources */,
-				C35AF21A2C432CDD00D00B56 /* .env in Resources */,
+				C3285E332C4765EC00D588FE /* .env in Resources */,
 				C3AFB45A2C33D68400D5C197 /* requirements.txt in Resources */,
 				C3AFB4452C33C23B00D5C197 /* Assets.xcassets in Resources */,
 			);

@@ -13,6 +13,7 @@ enum Loader {
     static func calculateBestRoute(addressOfPlacesToVisit: AddressBody, callback: @escaping (_ res: RouteResult) -> Void ){
        // local see changes in server term
         //let urlString = "http://127.0.0.1:8080/calculateRoute"
+        // prod url
         let urlString = "https://travelprushorth.wl.r.appspot.com/calculateRoute"
         var filteredItems: RouteResult?
         
