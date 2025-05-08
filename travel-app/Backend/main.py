@@ -45,7 +45,7 @@ def index():
 @app.route('/searchAddressOfPlace/', methods=['GET'])
 def searchAddressOfPlace():
     placeToSearch = request.args.get('placeToSearch')
-    apiResponse = requests.get(f'https://maps.googleapis.com/maps/api/place/textsearch/json?query={placeToSearch}&key=AIzaSyDbq-ALkqgJHFvNBDQc-1MJjCk6schskEw')
+    apiResponse = requests.get(f'https://maps.googleapis.com/maps/api/place/textsearch/json?query={placeToSearch}&key=process.env.GOOGLE_API_KEY')
     return apiResponse.json()
 
 @app.route('/calculateRoute/', methods=['GET', 'POST'])
@@ -146,7 +146,7 @@ def create_data_model(listOfAddressesOfPlacesToVisit):
 def buildTimeMatrix(listOfAddressesOfPlacesToVisit):
     addressesSeperatedByPipeline = createBigStringSeperatedByPipeline(listOfAddressesOfPlacesToVisit)
 
-    apiResponse = requests.get(f'https://maps.googleapis.com/maps/api/distancematrix/json?destinations={addressesSeperatedByPipeline}&origins={addressesSeperatedByPipeline}&units=imperial&key=AIzaSyDbq-ALkqgJHFvNBDQc-1MJjCk6schskEw')
+    apiResponse = requests.get(f'https://maps.googleapis.com/maps/api/distancematrix/json?destinations={addressesSeperatedByPipeline}&origins={addressesSeperatedByPipeline}&units=imperial&key=process.env.GOOGLE_API_KEY')
     
     data = apiResponse.json()
     distance_matrix = []
@@ -174,10 +174,10 @@ def buildTimeWindowMatrix(listOfAddressesOfPlacesToVisit):
     for addr in listOfAddressesOfPlacesToVisit:
        #fetch - issue list of strings does not have place id unless fetch again - another issue missign oepn and clsoe times what can i do
        print(addr)
-       apiResponse1 = requests.get(f'https://maps.googleapis.com/maps/api/place/textsearch/json?query={addr}&key=AIzaSyDbq-ALkqgJHFvNBDQc-1MJjCk6schskEw')
+       apiResponse1 = requests.get(f'https://maps.googleapis.com/maps/api/place/textsearch/json?query={addr}&key=process.env.GOOGLE_API_KEY')
        
        newPlaceId = apiResponse1.json()['results'][0]['place_id']
-       apiResponse = requests.get(f'https://places.googleapis.com/v1/places/{newPlaceId}?fields=currentOpeningHours&key=AIzaSyDbq-ALkqgJHFvNBDQc-1MJjCk6schskEw')
+       apiResponse = requests.get(f'https://places.googleapis.com/v1/places/{newPlaceId}?fields=currentOpeningHours&key=process.env.GOOGLE_API_KEY')
        data = apiResponse.json()
 
        # Find today's opening and closing times in the periods
@@ -281,7 +281,7 @@ def print_solution(data, manager, routing, solution, listOfAddressesOfPlacesToVi
 def create_note_dummy():
     dummy = DummyNote(
         text = "hi",
-        location = "mcdonalds"
+        location = "KFC"
     )
     db.session.add(dummy)
     db.session.commit()
@@ -295,6 +295,19 @@ def create_note_dummy():
 
     return json_string
 
+@app.route('/api/getNotes', methods=['GET'])
+def get_note_dummy():
+    notes = DummyNote.query.filter_by(location="mcdonalds")
+    data = {
+        "message" : "success",
+        "notes": notes
+    }
+
+    # Convert the dictionary to a
+    # JSON string with double quotes
+    json_string = json.dumps(data, ensure_ascii=False)
+
+    return json_string
 
 
 if __name__ == "__main__":

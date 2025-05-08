@@ -9,6 +9,7 @@ import Foundation
 
 @Observable
 class DetailViewModel {
+    var notes: [Note] = []
     
     func insertNoteToPostgres(currItem: PlaceResult) {
         let addressOfPlace = currItem.name + currItem.formatted_address
@@ -30,6 +31,12 @@ class DetailViewModel {
                     //homeViewModel.favoriteResults.append(insertedFav)
               //  }
             }
+        }
+    }
+    
+    func getNotes() async {
+        NoteHelper.getNotes() { result in
+            self.notes = result
         }
     }
       

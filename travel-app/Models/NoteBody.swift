@@ -14,3 +14,15 @@ struct NoteBody: Encodable {
 struct NoteInsertRes: Decodable {
     var msg: String;
 }
+
+struct Note: Decodable, Identifiable {
+    var id: Int
+    var description: String
+    var addressOfPlace: String
+}
+
+struct NoteRetrievedRes: Decodable {
+    var message: String;
+    var notes: [Note];
+}
+

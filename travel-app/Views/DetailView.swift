@@ -36,6 +36,8 @@ struct DetailView: View {
                     Spacer()
                 }
             }
+        }.task {
+            await detailViewModel.getNotes()
         }
     }
     
